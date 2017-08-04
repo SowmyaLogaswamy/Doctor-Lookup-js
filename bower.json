@@ -1,0 +1,21 @@
+{
+  "name": "doctor-lookup",
+  "description": "Building Gulp file",
+  "main": "index.js",
+  "authors": [
+    "Sowmya Logaswamy"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/SowmyaLogaswamy/Doctor-Lookup-js.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}
