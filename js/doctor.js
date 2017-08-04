@@ -15,3 +15,9 @@ Doctor.prototype.getDoctors = function (passedDoctorFunction) {
 };
 
 module.exports = Doctor;
+
+var apiKey = require('./../.env').apiKey;
+
+//make an API request and display results
+Doctor = function(){
+};
