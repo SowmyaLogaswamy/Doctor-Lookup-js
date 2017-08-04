@@ -30,5 +30,6 @@
     "url": "https://github.com/SowmyaLogaswamy/Doctor-Lookup-js/issues"
   },
   "homepage": "https://github.com/SowmyaLogaswamy/Doctor-Lookup-js#readme",
-  "description": "Build Gulp file"
+  "description": "Build Gulp file",
+  "dependencies": {}
 }
