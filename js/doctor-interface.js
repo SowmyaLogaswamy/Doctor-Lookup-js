@@ -2,8 +2,9 @@ var Doctor = require('./../js/doctor.js');
 
 var passedDoctorFunction = function(searchResults) {
   for(var i =0; i<searchResults.data.length; i++){
-    $('.results').append('<div class="doctorResults">'+ '<h2>' + searchResults.data[i].practices[i].name + " " '</h2>' +
-    searchResults.data[i].practices[i].visit_address.city + '>' + '<li>' + searchResults.data[i].practices[i].phones.number + '</li>'+ '</div>');
+    $('.results').append('<div class="doctorResults">' + searchResults.data[i].practices[i].name + " " +
+    searchResults.data[i].practices[i].visit_address.city + '>' + '<li>' +
+    searchResults.data[i].practices[i].phones.number + '</li>'+ '</div>');
   }
 };
 
