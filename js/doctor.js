@@ -1,4 +1,5 @@
 var apiKey = require('./../.env').apiKey;
+
 function Doctor(){
 }
 
@@ -7,7 +8,6 @@ Doctor.prototype.getDoctors = function (medicalIssue, passedDoctorFunction) {
   .then(function(apiResponse) {
       console.log(apiResponse);
       passedDoctorFunction(apiResponse);
-
     })
     .fail(function(error){
       console.log("fail");

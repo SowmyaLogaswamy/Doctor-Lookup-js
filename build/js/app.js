@@ -3,6 +3,7 @@ exports.apiKey="712a30bbee9f8a9910372ef25a1df649";
 
 },{}],2:[function(require,module,exports){
 var apiKey = require('./../.env').apiKey;
+
 function Doctor(){
 }
 
@@ -11,7 +12,6 @@ Doctor.prototype.getDoctors = function (medicalIssue, passedDoctorFunction) {
   .then(function(apiResponse) {
       console.log(apiResponse);
       passedDoctorFunction(apiResponse);
-
     })
     .fail(function(error){
       console.log("fail");
