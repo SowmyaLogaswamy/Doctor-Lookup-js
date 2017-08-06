@@ -13,6 +13,6 @@ $(document).ready(function(){
     $('.results').empty();
     event.preventDefault();
     var doctor = new Doctor();
-    doctor.getDoctors(searchResults);
+    doctor.getDoctors($('#symptom').val());
   });
 });
