@@ -3,40 +3,37 @@ exports.apiKey="712a30bbee9f8a9910372ef25a1df649";
 
 },{}],2:[function(require,module,exports){
 var apiKey = require('./../.env').apiKey;
-
 function Doctor(){
 }
 
-Doctor.prototype.getDoctors = function (medicalIssue) {
+Doctor.prototype.getDoctors = function (medicalIssue, passedDoctorFunction) {
   $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medicalIssue+'&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=' + apiKey)
   .then(function(apiResponse) {
       console.log(apiResponse);
-})
-.fail(function(error){
+      passedDoctorFunction(apiResponse);
+
+    })
+    .fail(function(error){
       console.log("fail");
-    });
-
+  });
 };
-
 module.exports = Doctor;
 
 },{"./../.env":1}],3:[function(require,module,exports){
 var Doctor = require('./../js/doctor.js');
 
-var passedDoctorFunction = function(searchResults) {
-  for(var i =0; i<searchResults.data.length; i++){
-    $('.results').append('<div class="doctorResults">' + searchResults.data[i].practices[i].name + " " +
-    searchResults.data[i].practices[i].visit_address.city + '>' + '<li>' +
-    searchResults.data[i].practices[i].phones.number + '</li>'+ '</div>');
-  }
+var passedDoctorFunction = function(apiResponse) {
+  for(var i=0; i<=apiResponse.data.length; i++ ) {
+      $('#results').append("<li>" + apiResponse.data[i].profile.first_name + " " + apiResponse.data[i].profile.last_name + "</li>");
+    }
 };
 
 $(document).ready(function(){
   $('.doctor').submit(function(event){
-    $('.results').empty();
+    $('#results').empty();
     event.preventDefault();
     var doctor = new Doctor();
-    doctor.getDoctors($('#symptom').val());
+    doctor.getDoctors($('#symptom').val(), passedDoctorFunction);
   });
 });
 
